@@ -1,0 +1,16 @@
+---
+import About from "../components/astro/About.astro";
+import Experience from "../components/astro/Experience.astro";
+import Projects from "../components/astro/Projects.astro";
+import MouseLight from "../components/react/MouseLight.tsx";
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Leonardo Rozza"; 
+const pageDescription = "Portafolio web de Leonardo Rozza, Técnico Superior en Programación Web. Explora mis proyectos y experiencia en desarrollo web.";
+---
+<Layout title={pageTitle} description={pageDescription}>  
+  <About />
+  <Projects /> 
+  <Experience />
+  <MouseLight client:load />
+</Layout>

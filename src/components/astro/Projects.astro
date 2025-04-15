@@ -1,0 +1,38 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = [
+  {
+    title: "Studio Bag Dog",
+    description: "Es una colección de proyectos de práctica que muestran cómo utilizar Bootstrap en diferentes tipos de sitios web y aplicaciones",
+    link: "https://demo.com",
+    image: "/img-proyectos/Studio-Bad-Dog.png",
+    tags: ["HTML", "CSS", "Bootstrap"]
+  },
+  {
+    title: "La Ponderosa",
+    description: "Desarrollo de un sitio web responsivo sobre la presentacion, informacion de una quinta con optimización en accesibilidad y rendimiento",
+    link: "https://leonardo-rozza.github.io/La-Ponderosa/",
+    image: "/img-proyectos/la-ponderosa.png",
+    tags: ["Astro", "React", "TypeScript", "HTML", "CSS"]
+  },
+   {
+    title: "Api rest ventas",
+    description:"Desarrollada con Spring Boot para la gestión de ventas, clientes y productos. Incluye operaciones CRUD, relaciones entre entidades, validaciones y persistencia con MySQL usando JPA y Lombok.",
+    link: "https://github.com/Leonardo-Rozza/APIREST-Ventas/tree/main",
+    image: "/img-proyectos/rest-api-img.png",
+    tags: ["Java", "Spring Boot", "MySQL", "JPA", "Lombok"]
+  }
+];
+
+---
+<section id="proyectos" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24 " aria-label="Proyectos destacados">
+  <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Proyectos</h2>
+  <div class="mt-4 lg:mt-0 ">
+    <ul class="group/list space-y-12">
+      {projects.map(project => (
+        <ProjectCard {...project} />
+      ))}
+    </ul>
+  </div>
+</section>

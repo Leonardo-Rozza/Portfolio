@@ -1,0 +1,46 @@
+---
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  link: string;
+  tags: string[];
+  image?: string;
+}
+
+const { title, description, link, tags = [], image } = Astro.props as ProjectCardProps;
+---
+
+<li class="mb-12">
+  <div class="group relative grid gap-6 p-6 rounded-lg bg-slate-800/50 border border-slate-700 hover:shadow-xl transition-all duration-300 sm:grid-cols-8 sm:gap-8 md:gap-6">
+    
+
+    {image
+      ? <img src={image} alt={`Imagen del proyecto ${title}`} class="w-full sm:w-auto sm:col-span-3 rounded-lg object-cover" />
+      : <div class="w-full sm:w-48 h-32 bg-slate-700 rounded-lg flex items-center justify-center text-sm text-slate-400">Sin imagen</div>
+    }
+
+    
+    <div class="z-10 sm:col-span-5">
+      <h3 class="text-lg font-semibold text-slate-200 group-hover:text-teal-300 transition-colors">
+        <a href={link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center">
+          {title}
+          <span class="ml-1 text-teal-300 group-hover:translate-x-0.5 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3h7v7m0 0L10 21l-7-7 11-11z" />
+            </svg>
+          </span>
+        </a>
+      </h3>
+      <p class="mt-2 text-sm leading-normal text-slate-400">{description}</p>
+      <ul class="mt-2 flex flex-wrap" aria-label="Tecnologías usadas">
+        {tags.map(tag => (
+          <li class="mr-1.5 mt-2">
+            <div class="flex items-center rounded-full bg-slate-700 text-teal-300 px-2.5 py-1 text-xs font-medium hover:bg-teal-500/20 transition">
+              {tag}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</li>
